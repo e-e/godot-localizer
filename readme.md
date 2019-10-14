@@ -19,3 +19,7 @@
   | GREETING | Hello  | こんにちは  | Hallo  |
   | FAREWELL | Goodbye  | さようなら  | Auf Wiedersehen  |
 
+---
+
+[See the Godot docs](https://docs.godotengine.org/en/latest/getting_started/workflow/assets/importing_translations.html#doc-importing-translations) for more info about localization in Godot
+
