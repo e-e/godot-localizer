@@ -78,7 +78,7 @@ class ParseCsvService implements ParseServiceInterface
                 $rowString .= $row[$column] . ",";
             }
 
-            $rowString = \preg_replace("/,$/", "", $rowString);
+            $rowString = preg_replace("/,$/", "", $rowString);
 
             $rowString .= "\n";
 
