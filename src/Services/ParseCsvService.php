@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Exceptions\ParseException;
 use App\Interfaces\ParseServiceInterface;
 
 /**
@@ -18,7 +19,11 @@ class ParseCsvService implements ParseServiceInterface
      * @var array|null
      */
     private $languageMap;
-    
+
+    /**
+     * ParseCsvService constructor.
+     * @param array $languageMap
+     */
     public function __construct(array $languageMap = [])
     {
         if (!empty($languageMap)) {
@@ -30,11 +35,12 @@ class ParseCsvService implements ParseServiceInterface
      * @param string $filename
      * @param string $delimiter
      * @return array
+     * @throws ParseException
      */
     public function parse(string $filename, string $delimiter = ",") : array
     {
         if(!file_exists($filename) || !is_readable($filename)) {
-            return false;
+            throw new ParseException("Unable to parse input file");
         }
     
         $header = null;

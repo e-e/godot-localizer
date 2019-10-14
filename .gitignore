@@ -4,3 +4,6 @@ vendor
 composer.phar
 .idea
 .idea/*
+.phpunit.result.cache
+lang-codes.php
+*.csv
