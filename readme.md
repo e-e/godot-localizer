@@ -1,7 +1,7 @@
-## Godot Translation Generator
+## Godot Localizer
 
 - Create and download a credentials JSON file for the Google Translate API.
-- Rename `.env.example` to `.env`, and set the path your credentials file in the `GOOGLE_TRANSLATE_KEYFILE_PATH` variable
+- Rename `.env.example` to `.env`, and set `GOOGLE_TRANSLATE_KEYFILE_PATH` to the path to your `credentials.json` file
 - Create a base translation CSV file:
 
   | id  | en  | ja  | de  |
