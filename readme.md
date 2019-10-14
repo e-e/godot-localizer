@@ -1,0 +1,1 @@
+## Godot Translation Generator
