@@ -10,9 +10,14 @@
   | GREETING | Hello   |     |     |
   | FAREWELL | Goodbye |     |     |
 
-- Run the command: `php translate /path/to/input.csv /path/to/desired/output.csv`
+- Run the command: 
+  - **PHP**
+    - `cd ./php/composer.phar install`
+    - `./translate php /path/to/input.csv /path/to/output.csv`
 
-  - If `/path/to/desired/output.csv` exists, you will be prompted with whether or not to overwrite the existing file
+
+
+- If `/path/to/desired/output.csv` exists, you will be prompted with whether or not to overwrite the existing file
 
 - Output generated will be a CSV file with the values filled in:
 
@@ -27,7 +32,7 @@ _Note:_
 
 Some of the language codes required for Google Translate are not compatible with Godot. If you are translating for one of those languages:
 
-- Rename `lang-codes.example.php` to `lang-codes.php`
+- Rename `lang-codes.example.json` to `lang-codes.json`
 - Define your mappings
 
 

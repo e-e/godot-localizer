@@ -110,6 +110,72 @@ class ParseCsvServiceTest extends AbstractTestCase
     }
 
     /**
+     * @dataProvider unparseDataProvider
+     * @param $langCodeMap
+     * @param $expected
+     */
+    public function testUnparse($langCodeMap, $expected)
+    {
+        $this->langCodeMap = $langCodeMap;
+        $outputFile = './test/output.csv';
+        
+        $data = [
+            [
+                "id" => "GREETING",
+                "en" => "Hello",
+                "de" => "Hallo",
+            ],
+            [
+                "id" => "GOODBYE",
+                "en" => "Good bye",
+                "de" => "Auf Wiedersehen",
+            ]
+        ];
+
+        self::$functions
+            ->shouldReceive('file_put_contents')
+            ->with($outputFile, $expected)
+            ->once();
+
+        $service = $this->getService();
+        $service->unparse($data, $outputFile);
+    }
+
+    /**
+     * @return array
+     */
+    public function unparseDataProvider() : array
+    {
+        $expected_1 = <<<STR
+id,en,ge
+GREETING,Hello,Hallo
+GOODBYE,Good bye,Auf Wiedersehen
+
+STR;
+
+        $expected_2 = <<<STR
+id,en,de
+GREETING,Hello,Hallo
+GOODBYE,Good bye,Auf Wiedersehen
+
+STR;
+        return [
+            [
+                // $langCodeMap
+                ['de' => 'ge'],
+                // $expected
+                $expected_1,
+            ],
+            [
+                // $langCodeMap
+                [],
+                // $expected
+                $expected_2,
+            ],
+        ];
+    }
+
+    /**
      * @return ParseCsvService
      */
     public function getService() : ParseCsvService

@@ -34,6 +34,16 @@ function file_exists(string $filepath) : bool
 
 /**
  * @param string $filepath
+ * @param string $contents
+ * @return mixed
+ */
+function file_put_contents(string $filepath, string $contents)
+{
+    return AbstractTestCase::$functions->file_put_contents($filepath, $contents);
+}
+
+/**
+ * @param string $filepath
  * @param string $mode
  * @return resource
  */
