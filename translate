@@ -4,4 +4,6 @@ case $1 in
 "php")
     php ./php/translate.php $2 $3
     ;;
+"python")
+    python ./python/translate.py $2 $3
 esac
